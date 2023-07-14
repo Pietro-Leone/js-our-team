@@ -2,7 +2,7 @@
 
 const teamMember = [
     {
-        firstName: "Wayne" ,
+        firstName: "Wayne",
         lastName: "Barnett",
         role: "Founder & CEO",
         img: "wayne-barnett-founder-ceo.jpg",
@@ -39,4 +39,21 @@ const teamMember = [
     }
 ]
 
-console.log(teamMember);
+for (let i = 0; i < teamMember.length; i++) {
+    const member = teamMember[i];
+
+    console.log(`Team Member #${i + 1}\n\n- Name: ${member.firstName}\n- Surname: ${member.lastName}\n- Role: ${member.role}`);
+
+    document.querySelector(".row").innerHTML +=
+        `
+        <div class="col-xl-4 col-md-6 col-sm-12 d-flex justify-content-center px-3">
+            <div class="card w-100" style="width: 18rem;">
+                <img src="img/${member.img}" class="card-img-top" alt="Img">
+                <div class="card-body text-center">
+                    <strong class="card-text">${member.firstName} ${member.lastName}</strong>
+                    <div class="card-text">${member.role}</div>
+                </div>
+            </div>
+        </div>
+        `
+}
